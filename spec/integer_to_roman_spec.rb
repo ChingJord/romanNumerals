@@ -1,4 +1,5 @@
 # lib/integer_to_roman_spec.rb
+require_relative '../integer_to_roman'
 
 describe Integer do
   context "int_to_roman" do

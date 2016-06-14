@@ -19,4 +19,15 @@ class Integer
     }
   end
 
+  def int_to_roman
+    result = ""
+    number = self
+    mapping.keys.each do |divisor|
+      quotient, modulus = number.divmod(divisor)
+      result << mapping[divisor] * quotient
+      number = modulus
+    end
+    result
+  end
+
 end
