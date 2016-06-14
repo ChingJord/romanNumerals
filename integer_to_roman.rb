@@ -1,6 +1,19 @@
 # lib/integer_to_roman.rb
 class Integer
 
+  def int_to_roman
+    result = ""
+    number = self
+    mapping.keys.each do |divisor|
+      quotient, modulus = number.divmod(divisor)
+      result << mapping[divisor] * quotient
+      number = modulus
+    end
+    result
+  end
+
+  private
+
   def mapping
     {
       1000 => "M",
@@ -17,17 +30,6 @@ class Integer
       4 => "IV",
       1 => "I"
     }
-  end
-
-  def int_to_roman
-    result = ""
-    number = self
-    mapping.keys.each do |divisor|
-      quotient, modulus = number.divmod(divisor)
-      result << mapping[divisor] * quotient
-      number = modulus
-    end
-    result
   end
 
 end
